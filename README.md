@@ -38,6 +38,28 @@ Writes a comprehensive, bite-sized implementation plan from a completed task ana
 
 ---
 
+### `wrap-up`
+
+Reviews session work and updates `README.md`, `CLAUDE.md`, and auto-memory files as needed. Covers all levels of the project (root and nested READMEs).
+
+**Use when:** ending a session, or explicitly asked to wrap up, update docs, or save memory.
+
+**Trigger phrases:** "wrap up", "end session", "update docs", "save memory"
+
+---
+
+### `git-wrap-up`
+
+History-driven variant of `wrap-up`. Reads the git commit log since the last wrap-up rather than the current conversation, then updates docs and memory to reflect what was actually committed.
+
+**Use when:** syncing documentation to committed changes rather than the current session.
+
+**Trigger phrases:** "git wrap up", "sync docs to commits", "update docs from git"
+
+**Depends on:** `wrap-up`
+
+---
+
 ### `perform-mr-review`
 
 Fetches a GitLab branch or resolves an MR URL to its source branch, reads the diff and key changed files, then dispatches a structured code review via the `superpowers:code-reviewer` subagent. Returns findings grouped as critical blockers, important fixes, minor suggestions, and what looks good.
@@ -78,6 +100,8 @@ Skills are loaded into Claude Code via the MCP skills server or by referencing t
 /gitlab-cicd-docs
 /pipeline-plantuml
 /perform-mr-review
+/wrap-up
+/git-wrap-up
 ```
 
 If a skill depends on another (noted in the skill entry above), both must be available in your configuration.

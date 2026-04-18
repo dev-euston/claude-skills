@@ -4,7 +4,8 @@
       "Skill(update-config)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git -C /Users/elee/Projects/claude-skills status)"
     ]
   },
   "enabledPlugins": {
